@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import Employees from './pages/Employees';
+import Customers from './pages/Customers';
+import Projects from './pages/Projects';
+import Dictionary from './pages/Dictionary';
+import Definitions from './pages/Definitions';
+import Header from './components/Header';
+import Notfound from './components/Notfound';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ 
+    return (
+      <BrowserRouter>
+ <Header >
+ 
+  <Routes>
+    <Route path="/" element={ <Employees/>}/>
+    <Route path="/customers" element={ <Customers/>}/>
+    <Route path="/Projects" element={ <Projects/>}/>
+    <Route path="/Dictionary" element={ <Dictionary/>}/>
+    <Route path="/Dictionary/:search" element={ <Definitions/>}/>
+    <Route path="/404" element={ <Notfound/>}/>
+  </Routes>
+ 
+       
+  </Header>
+  </BrowserRouter>
+ );
 }
 
 export default App;
